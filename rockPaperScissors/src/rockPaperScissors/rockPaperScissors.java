@@ -11,9 +11,7 @@ public class rockPaperScissors {
 		scan.close();
 		String computer = shoot();
 		System.out.println("Computer's hand is: " + computer); 
-//		debugging.... shoot correctly returns a value
 		String winner = returnWinner(userInput, computer);
-//		System.out.println(winner);
 		if (winner == "tie") {
 			System.out.println("It's a tie!");
 		}
@@ -21,7 +19,7 @@ public class rockPaperScissors {
 			System.out.println("The winner is " + winner );
 	}
 	
-	
+	//
 //	method randomly chooses a number between 1 and 3
 //	method returns a String of a corresponding output 
 	
