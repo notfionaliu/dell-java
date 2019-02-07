@@ -9,6 +9,8 @@
 //When implementing your solution, use helper methods and include comments in your code.
 package gradeBook;
 import java.util.*;
+import java.util.Map;
+import java.util.Map.Entry;
 
 public class gradeBook {
 
@@ -46,11 +48,15 @@ public class gradeBook {
 //				continueFlag = false;
 		}
 		
-		for (int i = 0; i < gradebook.size(); i++) {
-			Double currentName = gradebook.get(i);
-			Double currentAverage = gradebook.get(currentName);
-			System.out.println(currentName + "'s average grade is " + currentAverage);
-		}
+//		By the way i totally stole this from stackoverflow..
+//		I don't know how to use an iterator
+		
+	    for (Entry<String,Double> pair : gradebook.entrySet()){
+	        //iterate over the pairs
+	        System.out.println(pair.getKey()+"'s average grade is "+ pair.getValue());
+	    }
+		
+
 	}
 	
 //	Converts a string of numbers and computes the average
