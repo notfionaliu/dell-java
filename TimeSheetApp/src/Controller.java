@@ -96,7 +96,7 @@
 
 	        int idParts = Integer.parseInt(actionParts[1]);
 	        TimesheetEntry entry = timesheet.get(idParts);
-	        
+	        System.out.println("[Entry " + idParts + " has been stopped]");
 	        timesheet.stop(entry);
 	    }
 
@@ -177,13 +177,13 @@
     	    while(!validInput) {
     	    	String project = consoleUtils.promptString("Project Name (one word only):");
     	    	String [] words = project.split(" ");
-    	    	if (words.length == 1) {
+    	    	if ((words.length == 1) && !(project == null)) {
     	    		String description = consoleUtils.promptString("Task:");
     		        timesheet.add(project, description);
     		        validInput = true;
     	    	}
     	    	else
-    	    		System.out.println("Project name contained too many words");
+    	    		System.out.println("Project name is invalid");
     	    		
     	    	
     	    }

@@ -10,4 +10,8 @@ public class Main{
 }
 
 //Things to do 
-//throw an exception in Stop method if user enters invalid input
+// add needs to have a project
+// stop must contain an integer id
+// stop must point to an ID value
+// stop must handle ID's that don't exist
+// same handling with delete
