@@ -3,6 +3,7 @@ public class CarLot {
 
 	String name;
 	Vehicle[] vehicles;
+	private int counter = 0;
 	
 	
 	// constructor 
@@ -26,16 +27,16 @@ public class CarLot {
 
 	
 	void add(Vehicle vehicle) {
-		int length = vehicles.length;
-		int newLength = length+1;
-		vehicles[newLength] = vehicle;
+		vehicles[counter] = vehicle;
+		counter++;
+		System.out.println(vehicle.make + " " + vehicle.model + " was added");
 	}
 	
 	
 	void list() {
-		System.out.println("The car lot has " + vehicles.length + " cars. ");
+		System.out.println("The car lot " + name +" has " + counter + " cars. ");
 		
-		for(int i = 0; i < vehicles.length; i++) {
+		for(int i = 0; i < counter; i++) {
 			System.out.println(vehicles[i].list());
 		}
 	}
