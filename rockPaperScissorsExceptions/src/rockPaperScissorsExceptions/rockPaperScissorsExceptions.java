@@ -1,24 +1,39 @@
-package rockPaperScissors;
-
+package rockPaperScissorsExceptions;
+import java.util.*;
 import java.util.Scanner;
 import java.util.Random;
 
-public class rockPaperScissors {
+public class rockPaperScissorsExceptions {
 	public static void main(String[] args) {
-		System.out.println("What's your hand? (rock paper scissor)");
-		Scanner scan = new Scanner(System.in);
-		String userInput = scan.nextLine();
-		scan.close();
-		String computer = shoot();
-		System.out.println("Computer's hand is: " + computer); 
-		String winner = returnWinner(userInput, computer);
-		if (winner == "tie") {
-			System.out.println("It's a tie!");
+		
+		boolean checkContinue = true;
+		while(checkContinue) {
+			try{ 
+				System.out.println("What's your hand? (rock paper scissor)");
+				Scanner scan = new Scanner(System.in);
+				String userInput = scan.nextLine();
+				checkInput(userInput);
+				checkContinue = false; //valid input, exit the loop
+				scan.close();
+				String computer = shoot();
+				System.out.println("Computer's hand is: " + computer); 
+				String winner = returnWinner(userInput, computer);
+				
+				if (winner == "tie") {
+					System.out.println("It's a tie!");
+				}
+				else
+					System.out.println("The winner is " + winner );
+			} catch(NoSuchElementException e) {
+				System.out.println("You need to input 'rock, paper, or scissor'");
+			}
 		}
-		else
-			System.out.println("The winner is " + winner );
 	}
-	
+		
+	public static void checkInput(String input) {
+		if(!(input.equals("rock") || input.equals("paper") || input.equals("scissor")))
+			throw new NoSuchElementException();
+	}
 	//
 //	method randomly chooses a number between 1 and 3
 //	method returns a String of a corresponding output 
